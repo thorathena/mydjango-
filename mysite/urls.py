@@ -16,6 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from blog import views
+from blog.views import Home,List,Detail, MyPostList, Myarticles
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', Home.as_view(), name='home'),
+    url(r'^post/', List.as_view(), name='list'),
+    url(r'^detail/(?P<pk>[0-9]+)/', Detail.as_view(), name='post_detail'),
+    url(r'^list/', MyPostList.as_view(), name='articlelist'),
+    url(r'^article/(?P<pk>[0-9]+)/', Myarticles.as_view(), name='article'),
+    
+
+
 ]

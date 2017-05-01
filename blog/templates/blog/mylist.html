@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+{% for art in object_list %}
+    <div class = "post">
+    <h1> <a href="{% url 'article' pk=art.pk %}" >{{ art.title }} </a> </h1>
+    by {{ art.author }}
+     </div>
+{% endfor %}
+
+{% endblock %}
