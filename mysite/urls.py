@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from blog import views
-from blog.views import Home,List,Detail, MyPostList, Myarticles
+from blog.views import Home,List,Detail, MyPostList, Myarticles,Delete
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^detail/(?P<pk>[0-9]+)/', Detail.as_view(), name='post_detail'),
     url(r'^list/', MyPostList.as_view(), name='articlelist'),
     url(r'^article/(?P<pk>[0-9]+)/', Myarticles.as_view(), name='article'),
-    
+    url(r'^delete/(?P<pk>[0-9]+)/', Delete.as_view(), name='delete'),
+
 
 
 ]

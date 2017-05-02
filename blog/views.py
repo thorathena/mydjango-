@@ -4,12 +4,12 @@ from __future__ import unicode_literals
 from time import timezone
 
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import DeleteView
 from django.views.generic import DetailView
-from django.views.generic import FormView
 from django.views.generic import ListView
 from django.views.generic import TemplateView
 from .models import Post,Article
-from .forms import PostForm
+
 
 
 
@@ -46,10 +46,9 @@ class Myarticles(DetailView):
         return render(request, 'blog/article.html', {'art': art})
 
 
-class PostNew(FormView):
-    def post_new(request):
-        form = PostForm()
-        return render(request, 'blog/post_edit.html', {'form': form})
+class Delete(DeleteView):
+    model = Post
+    success_url = 'blog/delete.html'
 
 
 
